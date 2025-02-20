@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
+import { RecoilRoot, useRecoilValue } from 'recoil'
 import { jobsAtom, messagingAtom, networkAtom, notificationAtom } from './atoms'
 
 function App() {
@@ -14,7 +14,8 @@ function MainApp() {
   const jobsAtomCount = useRecoilValue(jobsAtom);
   const notificationAtomCount = useRecoilValue(notificationAtom);
   const messagingAtomCount = useRecoilValue(messagingAtom);
-return (
+
+       return (
     <>
      <button>Home</button>
 
@@ -22,15 +23,10 @@ return (
      <button>My Network ({newtWorkNotifications >= 100 ? "99+" : newtWorkNotifications})</button>
      <button>Messageing ({messagingAtomCount})</button>
      <button>Notifications ({notificationAtomCount})</button>
-      <ButtonUpdater/>
+
+     <button>Me</button>
     </>
   )
-}
-function ButtonUpdater() {
-  const setMessagingAtomgCount = useSetRecoilState(messagingAtom);
-  return <button onClick={()=>{
-      setMessagingAtomgCount(c => c + 1);
-     }}>Me</button>
 }
 
 export default App
