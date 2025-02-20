@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { RecoilRoot, useRecoilValue } from 'recoil'
-import { jobsAtom, messagingAtom, networkAtom, notificationAtom } from './atoms'
+import { jobsAtom, messagingAtom, networkAtom, notificationAtom, totalNotificationCount } from './atoms'
 
 function App() {
   
@@ -14,6 +14,7 @@ function MainApp() {
   const jobsAtomCount = useRecoilValue(jobsAtom);
   const notificationAtomCount = useRecoilValue(notificationAtom);
   const messagingAtomCount = useRecoilValue(messagingAtom);
+  const totalnotifications = useRecoilValue(totalNotificationCount);
 
        return (
     <>
@@ -24,7 +25,7 @@ function MainApp() {
      <button>Messageing ({messagingAtomCount})</button>
      <button>Notifications ({notificationAtomCount})</button>
 
-     <button>Me</button>
+     <button>Me({totalnotifications})</button>
     </>
   )
 }
